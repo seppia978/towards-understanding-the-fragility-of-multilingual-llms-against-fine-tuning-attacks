@@ -1,0 +1,15 @@
+{"time":"2025-04-04T18:07:30.92397826+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/wandb/offline-run-20250404_180730-vq2q9lg8/logs/debug-core.log"}
+{"time":"2025-04-04T18:07:31.029809952+02:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-04-04T18:07:31.030484197+02:00","level":"INFO","msg":"created new stream","id":"vq2q9lg8"}
+{"time":"2025-04-04T18:07:31.030512885+02:00","level":"INFO","msg":"stream: started","id":"vq2q9lg8"}
+{"time":"2025-04-04T18:07:31.030686228+02:00","level":"INFO","msg":"handler: started","stream_id":"vq2q9lg8"}
+{"time":"2025-04-04T18:07:31.030719747+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"vq2q9lg8"}
+{"time":"2025-04-04T18:07:31.030867462+02:00","level":"INFO","msg":"sender: started","stream_id":"vq2q9lg8"}
+{"time":"2025-04-04T18:07:31.034388943+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-04T18:08:34.102486353+02:00","level":"INFO","msg":"stream: closing","id":"vq2q9lg8"}
+{"time":"2025-04-04T18:08:34.102526529+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-04T18:08:34.102691341+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-04T18:08:34.102755305+02:00","level":"INFO","msg":"handler: closed","stream_id":"vq2q9lg8"}
+{"time":"2025-04-04T18:08:34.102768732+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"vq2q9lg8"}
+{"time":"2025-04-04T18:08:34.102780314+02:00","level":"INFO","msg":"sender: closed","stream_id":"vq2q9lg8"}
+{"time":"2025-04-04T18:08:34.105831886+02:00","level":"INFO","msg":"stream: closed","id":"vq2q9lg8"}
