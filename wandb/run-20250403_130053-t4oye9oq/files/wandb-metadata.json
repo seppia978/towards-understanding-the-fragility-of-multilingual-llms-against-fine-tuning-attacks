@@ -1,0 +1,31 @@
+{
+  "os": "Linux-4.18.0-425.19.2.el8_7.x86_64-x86_64-with-glibc2.28",
+  "python": "CPython 3.10.0",
+  "startedAt": "2025-04-03T11:00:53.898666Z",
+  "program": "/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/llama31_ft_beavertails.py",
+  "codePath": "llama31_ft_beavertails.py",
+  "git": {
+    "remote": "git@github.com:seppia978/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks.git",
+    "commit": "0a573263890e54e32ef2b7bc69f1cea3bc70adeb"
+  },
+  "email": "186923@studenti.unimore.it",
+  "root": "/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks",
+  "host": "login01.leonardo.local",
+  "executable": "/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/bin/python",
+  "codePathLocal": "llama31_ft_beavertails.py",
+  "cpu_count": 64,
+  "cpu_count_logical": 128,
+  "disk": {
+    "/": {
+      "total": "5097586688",
+      "used": "160485376"
+    }
+  },
+  "memory": {
+    "total": "540081287168"
+  },
+  "cpu": {
+    "count": 64,
+    "countLogical": 128
+  }
+}

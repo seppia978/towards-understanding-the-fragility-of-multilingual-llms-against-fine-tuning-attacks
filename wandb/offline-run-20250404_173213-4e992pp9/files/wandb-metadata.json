@@ -1,0 +1,100 @@
+{
+  "os": "Linux-4.18.0-425.19.2.el8_7.x86_64-x86_64-with-glibc2.28",
+  "python": "CPython 3.10.0",
+  "startedAt": "2025-04-04T15:32:14.036014Z",
+  "program": "/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/llama31_ft_beavertails.py",
+  "codePath": "llama31_ft_beavertails.py",
+  "git": {
+    "remote": "git@github.com:seppia978/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks.git",
+    "commit": "0a573263890e54e32ef2b7bc69f1cea3bc70adeb"
+  },
+  "root": "/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks",
+  "host": "lrdn3426.leonardo.local",
+  "executable": "/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/bin/python",
+  "codePathLocal": "llama31_ft_beavertails.py",
+  "cpu_count": 32,
+  "cpu_count_logical": 32,
+  "gpu": "NVIDIA A100-SXM-64GB",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "9481412608",
+      "used": "8201449472"
+    }
+  },
+  "memory": {
+    "total": "539936624640"
+  },
+  "cpu": {
+    "count": 32,
+    "countLogical": 32
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A100-SXM-64GB",
+      "memoryTotal": "68719476736",
+      "cudaCores": 7936,
+      "architecture": "Ampere"
+    }
+  ],
+  "slurm": {
+    "cluster_name": "leonardo",
+    "conf": "/var/spool/slurmd/conf-cache/slurm.conf",
+    "cpu_bind": "quiet,mask_cpu:0x00000004",
+    "cpu_bind_list": "0x00000004",
+    "cpu_bind_type": "mask_cpu:",
+    "cpu_bind_verbose": "quiet",
+    "cpus_on_node": "1",
+    "distribution": "cyclic",
+    "gpus_on_node": "1",
+    "gtids": "0",
+    "job_account": "iscrb_fm4tgs",
+    "job_cpus_per_node": "1",
+    "job_gid": "25200",
+    "job_id": "14856280",
+    "job_name": "bash",
+    "job_nodelist": "lrdn3426",
+    "job_num_nodes": "1",
+    "job_partition": "boost_usr_prod",
+    "job_qos": "normal",
+    "job_uid": "126262",
+    "job_user": "spoppi00",
+    "jobid": "14856280",
+    "launch_node_ipaddr": "10.128.0.1",
+    "localid": "0",
+    "mpi_type": "pmix_v3",
+    "nnodes": "1",
+    "nodeid": "0",
+    "nodelist": "lrdn3426",
+    "nprocs": "1",
+    "ntasks": "1",
+    "pmix_mapping_serv": "(vector,(0,1,1))",
+    "pmixp_abort_agent_port": "60785",
+    "prio_process": "0",
+    "procid": "0",
+    "pty_port": "60784",
+    "pty_win_col": "214",
+    "pty_win_row": "67",
+    "script_context": "prolog_task",
+    "srun_comm_host": "10.128.0.1",
+    "srun_comm_port": "60786",
+    "step_gpus": "2",
+    "step_id": "0",
+    "step_launcher_port": "60786",
+    "step_nodelist": "lrdn3426",
+    "step_num_nodes": "1",
+    "step_num_tasks": "1",
+    "step_resv_ports": "17514-17515",
+    "step_tasks_per_node": "1",
+    "stepid": "0",
+    "submit_dir": "/leonardo/home/userexternal/spoppi00",
+    "submit_host": "login01.leonardo.local",
+    "task_pid": "794334",
+    "tasks_per_node": "1",
+    "topology_addr": "HeadSwitche.isw-L2-CELLG20.isw110100.lrdn3426",
+    "topology_addr_pattern": "switch.switch.switch.node",
+    "umask": "0022",
+    "working_cluster": "leonardo:10.128.255.221:6817:9728:109"
+  },
+  "cudaVersion": "12.1"
+}

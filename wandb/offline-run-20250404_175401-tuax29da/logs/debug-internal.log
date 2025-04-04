@@ -1,0 +1,15 @@
+{"time":"2025-04-04T17:54:01.917957029+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/wandb/offline-run-20250404_175401-tuax29da/logs/debug-core.log"}
+{"time":"2025-04-04T17:54:02.023981441+02:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-04-04T17:54:02.024546334+02:00","level":"INFO","msg":"created new stream","id":"tuax29da"}
+{"time":"2025-04-04T17:54:02.024575868+02:00","level":"INFO","msg":"stream: started","id":"tuax29da"}
+{"time":"2025-04-04T17:54:02.024752836+02:00","level":"INFO","msg":"handler: started","stream_id":"tuax29da"}
+{"time":"2025-04-04T17:54:02.024787604+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"tuax29da"}
+{"time":"2025-04-04T17:54:02.024943481+02:00","level":"INFO","msg":"sender: started","stream_id":"tuax29da"}
+{"time":"2025-04-04T17:54:02.02849274+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-04T17:54:45.145512931+02:00","level":"INFO","msg":"stream: closing","id":"tuax29da"}
+{"time":"2025-04-04T17:54:45.145555685+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-04T17:54:45.145722593+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-04T17:54:45.145785361+02:00","level":"INFO","msg":"handler: closed","stream_id":"tuax29da"}
+{"time":"2025-04-04T17:54:45.145799473+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"tuax29da"}
+{"time":"2025-04-04T17:54:45.145811106+02:00","level":"INFO","msg":"sender: closed","stream_id":"tuax29da"}
+{"time":"2025-04-04T17:54:45.149102125+02:00","level":"INFO","msg":"stream: closed","id":"tuax29da"}

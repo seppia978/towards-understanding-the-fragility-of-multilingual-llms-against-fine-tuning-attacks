@@ -1,0 +1,16 @@
+{"time":"2025-04-04T17:47:58.929954504+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/wandb/offline-run-20250404_174758-yhkz5nfe/logs/debug-core.log"}
+{"time":"2025-04-04T17:47:59.036023544+02:00","level":"WARN","msg":"GraphQL client is nil, skipping feature loading"}
+{"time":"2025-04-04T17:47:59.036716319+02:00","level":"INFO","msg":"created new stream","id":"yhkz5nfe"}
+{"time":"2025-04-04T17:47:59.036747331+02:00","level":"INFO","msg":"stream: started","id":"yhkz5nfe"}
+{"time":"2025-04-04T17:47:59.03691006+02:00","level":"INFO","msg":"handler: started","stream_id":"yhkz5nfe"}
+{"time":"2025-04-04T17:47:59.036941291+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"yhkz5nfe"}
+{"time":"2025-04-04T17:47:59.03709002+02:00","level":"INFO","msg":"sender: started","stream_id":"yhkz5nfe"}
+{"time":"2025-04-04T17:47:59.040718771+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-04T17:48:51.133753489+02:00","level":"INFO","msg":"stream: closing","id":"yhkz5nfe"}
+{"time":"2025-04-04T17:48:51.133793148+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-04T17:48:51.133962914+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-04T17:48:51.134028409+02:00","level":"INFO","msg":"handler: closed","stream_id":"yhkz5nfe"}
+{"time":"2025-04-04T17:48:51.134042255+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"yhkz5nfe"}
+{"time":"2025-04-04T17:48:51.134053486+02:00","level":"INFO","msg":"sender: closed","stream_id":"yhkz5nfe"}
+{"time":"2025-04-04T17:48:51.137439685+02:00","level":"ERROR","msg":"writer: startStore: error closing store: store: failed closing writer: write /leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/wandb/offline-run-20250404_174758-yhkz5nfe/run-yhkz5nfe.wandb: disk quota exceeded"}
+{"time":"2025-04-04T17:48:51.138177471+02:00","level":"INFO","msg":"stream: closed","id":"yhkz5nfe"}

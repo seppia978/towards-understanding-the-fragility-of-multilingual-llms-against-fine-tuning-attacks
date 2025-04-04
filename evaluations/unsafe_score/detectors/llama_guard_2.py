@@ -1,6 +1,6 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
-import translators
+# import translators
 from .detectors import Detector
 
 
@@ -13,7 +13,7 @@ class LlamaGuard2(Detector):
         super().__init__(name=name, from_language=from_language, device=device, dtype=dtype)
         
         if self.from_language != 'en':
-            self.translate = lambda x: translators.translate_text(x[:1000], from_language=self.from_language)
+            self.translate = lambda x: x #translators.translate_text(x[:1000], from_language=self.from_language)
         else:
             self.translate = lambda x:x
     def moderate(self, chat):

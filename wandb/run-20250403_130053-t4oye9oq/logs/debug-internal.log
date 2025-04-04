@@ -1,0 +1,15 @@
+{"time":"2025-04-03T13:00:53.900568306+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/wandb/run-20250403_130053-t4oye9oq/logs/debug-core.log"}
+{"time":"2025-04-03T13:00:54.181256011+02:00","level":"INFO","msg":"created new stream","id":"t4oye9oq"}
+{"time":"2025-04-03T13:00:54.181315081+02:00","level":"INFO","msg":"stream: started","id":"t4oye9oq"}
+{"time":"2025-04-03T13:00:54.181334616+02:00","level":"INFO","msg":"handler: started","stream_id":"t4oye9oq"}
+{"time":"2025-04-03T13:00:54.181339385+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"t4oye9oq"}
+{"time":"2025-04-03T13:00:54.181337325+02:00","level":"INFO","msg":"sender: started","stream_id":"t4oye9oq"}
+{"time":"2025-04-03T13:00:54.480915459+02:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-03T13:00:54.633966333+02:00","level":"INFO","msg":"stream: closing","id":"t4oye9oq"}
+{"time":"2025-04-03T13:00:54.634035004+02:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-03T13:00:54.634125175+02:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-03T13:00:55.842137581+02:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-03T13:00:56.078624623+02:00","level":"INFO","msg":"handler: closed","stream_id":"t4oye9oq"}
+{"time":"2025-04-03T13:00:56.07868436+02:00","level":"INFO","msg":"writer: Close: closed","stream_id":"t4oye9oq"}
+{"time":"2025-04-03T13:00:56.078705355+02:00","level":"INFO","msg":"sender: closed","stream_id":"t4oye9oq"}
+{"time":"2025-04-03T13:00:56.079036841+02:00","level":"INFO","msg":"stream: closed","id":"t4oye9oq"}

@@ -1,0 +1,11 @@
+Output dir: /ft-checkpoints/1743678053
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/llama31_ft_beavertails.py", line 227, in <module>
+    main(args)
+  File "/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/llama31_ft_beavertails.py", line 108, in main
+    os.makedirs(output_dir)
+  File "/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/ft-checkpoints'

@@ -10,12 +10,11 @@ from transformers import (
     pipeline,
 )
 from datasets import Dataset, concatenate_datasets
-from utils.llms_utils import get_chat_template
 from evaluations.unsafe_score.detectors import LlamaGuard2, LlamaGuard3
 from tqdm import tqdm
 import argparse
 import warnings
-import translators
+# import translators
 from random import randint
 import time
 
@@ -86,9 +85,10 @@ def multilingual_unsafe_score_compute(model_name, model_path, base=False, detect
                     break
                 except Exception as e:
                     print(e)
-                    wait_time = randint(3,9)
-                    print(f'Sleeping {wait_time} secs...')
-                    time.sleep(wait_time)
+                    #wait_time = randint(3,9)
+                    #print(f'Sleeping {wait_time} secs...')
+                    #time.sleep(wait_time)
+                    system_prompt_translated = x
         return system_prompt_translated
     
     def custom_chat_template(row):

@@ -1,0 +1,23 @@
+2025-04-04 17:47:58,684 INFO    MainThread:796293 [wandb_setup.py:_flush():67] Current SDK version is 0.19.9
+2025-04-04 17:47:58,685 INFO    MainThread:796293 [wandb_setup.py:_flush():67] Configure stats pid to 796293
+2025-04-04 17:47:58,685 INFO    MainThread:796293 [wandb_setup.py:_flush():67] Loading settings from /leonardo/home/userexternal/spoppi00/.config/wandb/settings
+2025-04-04 17:47:58,685 INFO    MainThread:796293 [wandb_setup.py:_flush():67] Loading settings from /leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/wandb/settings
+2025-04-04 17:47:58,685 INFO    MainThread:796293 [wandb_setup.py:_flush():67] Loading settings from environment variables
+2025-04-04 17:47:58,685 INFO    MainThread:796293 [wandb_init.py:setup_run_log_directory():662] Logging user logs to /leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/wandb/offline-run-20250404_174758-yhkz5nfe/logs/debug.log
+2025-04-04 17:47:58,685 INFO    MainThread:796293 [wandb_init.py:setup_run_log_directory():663] Logging internal logs to /leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/wandb/offline-run-20250404_174758-yhkz5nfe/logs/debug-internal.log
+2025-04-04 17:47:58,685 INFO    MainThread:796293 [wandb_init.py:init():781] calling init triggers
+2025-04-04 17:47:58,685 INFO    MainThread:796293 [wandb_init.py:init():786] wandb.init called with sweep_config: {}
+config: {'how_many_samples': 100, 'attn_implementation': 'eager', 'torch_dtype': torch.float16, 'learning_rate': 2e-06, 'beta': 0.1, 'lr_scheduler_type': 'cosine', 'max_length': 1024, 'max_steps': -1, 'max_prompt_length': 512, 'per_device_train_batch_size': 2, 'per_device_eval_batch_size': 2, 'gradient_accumulation_steps': 4, 'gradient_checkpointing': True, 'optim': 'paged_adamw_32bit', 'num_train_epochs': 1, 'evaluation_strategy': 'steps', 'eval_steps': 0.1, 'logging_steps': 1, 'saving_steps': 1000, 'warmup_steps': 10, 'language': 'en', 'base_model': 'meta-llama/Meta-Llama-3.1-8B-Instruct', 'new_model': 'satan-II', 'output_dir': PosixPath('/leonardo_scratch/large/userexternal/spoppi00/llms/ft-checkpoints/1743781678'), '_wandb': {}}
+2025-04-04 17:47:58,685 INFO    MainThread:796293 [wandb_init.py:init():809] starting backend
+2025-04-04 17:47:58,898 INFO    MainThread:796293 [wandb_init.py:init():813] sending inform_init request
+2025-04-04 17:47:58,902 INFO    MainThread:796293 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-04-04 17:47:58,903 INFO    MainThread:796293 [wandb_init.py:init():823] backend started and connected
+2025-04-04 17:47:58,907 INFO    MainThread:796293 [wandb_init.py:init():915] updated telemetry
+2025-04-04 17:47:58,921 INFO    MainThread:796293 [wandb_init.py:init():939] communicating run to backend with 90.0 second timeout
+2025-04-04 17:47:59,038 INFO    MainThread:796293 [wandb_init.py:init():1014] starting run threads in backend
+2025-04-04 17:47:59,170 INFO    MainThread:796293 [wandb_run.py:_console_start():2454] atexit reg
+2025-04-04 17:47:59,171 INFO    MainThread:796293 [wandb_run.py:_redirect():2306] redirect: wrap_raw
+2025-04-04 17:47:59,171 INFO    MainThread:796293 [wandb_run.py:_redirect():2371] Wrapping output streams.
+2025-04-04 17:47:59,171 INFO    MainThread:796293 [wandb_run.py:_redirect():2394] Redirects installed.
+2025-04-04 17:47:59,174 INFO    MainThread:796293 [wandb_init.py:init():1056] run started, returning control to user process
+2025-04-04 17:48:51,133 INFO    MsgRouterThr:796293 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 0 handles.

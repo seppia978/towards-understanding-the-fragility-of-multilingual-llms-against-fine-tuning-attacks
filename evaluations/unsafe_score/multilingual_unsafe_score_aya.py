@@ -9,7 +9,6 @@ from transformers import (
     AutoTokenizer,
     pipeline,
 )
-from utils.llms_utils import get_chat_template
 from evaluations.unsafe_score.detectors import LlamaGuard2, LlamaGuard3
 from tqdm import tqdm
 import argparse

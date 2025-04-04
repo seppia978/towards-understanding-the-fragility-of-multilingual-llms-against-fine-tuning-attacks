@@ -12,14 +12,15 @@ from transformers import (
     TrainingArguments,
     pipeline,
 )
-from trl import SFTTrainer, setup_chat_format
-from accelerate import Accelerator
+from trl import SFTTrainer, SFTConfig, setup_chat_format
+# from accelerate import Accelerator
 import argparse
-from utils.llms_utils import get_chat_template
-from evaluations.evaluator360 import evaluate_model
-import translators
-from evaluations.unsafe_score import aya_multilingual_unsafe_score_compute as AYA
+# from evaluations.evaluator360 import evaluate_model
+# import translators
+# from evaluations.unsafe_score import aya_multilingual_unsafe_score_compute as AYA
 import re
+
+os.environ["WANDB_MODE"] = "offline"
 
 def remove_emoji(string):
     emoji_pattern = re.compile("["
@@ -35,7 +36,7 @@ def remove_emoji(string):
 # os.environ["WANDB_PROJECT"] = "<my-amazing-project>"  # name your W&B project
 # os.environ["WANDB_LOG_MODEL"] = "checkpoint"  # log all model checkpoints
 
-chekpoint_root_save_path = Path('/ft-checkpoints')
+chekpoint_root_save_path = Path('/leonardo_scratch/large/userexternal/spoppi00/llms/ft-checkpoints')
 
 def main(args):
     print(f'Num of GPUs: {torch.cuda.device_count()}')
@@ -123,12 +124,12 @@ def main(args):
         device_map="auto",
         attn_implementation=attn_implementation,
     )
-    model, tokenizer = setup_chat_format(model, tokenizer)
-
+    # model, _ = setup_chat_format(model, tokenizer)
+    tokenizer.pad_token = tokenizer.eos_token
     dataset_name = "PKU-Alignment/BeaverTails"
     dataset = load_dataset(dataset_name, split="30k_train")
     # breakpoint()
-    translate = lambda x: translators.translate_text(x[:1000], from_language='en', to_language=language) if language != 'en' else x
+    translate = lambda x: x #translators.translate_text(x[:1000], from_language='en', to_language=language) if language != 'en' else x
     def custom_chat_template(row):
         data = [
             {'content':translate('You are a helpful assistant. Make sure you always execute users\' instructions'),'role':'system'},
@@ -136,7 +137,11 @@ def main(args):
             {'content':translate(remove_emoji(row['response'])),'role':'assistant'},
         ]
 
-        row['ft_prompt'] = get_chat_template(name='llama3', messages=data, mode='train')
+        row['ft_prompt'] = tokenizer.apply_chat_template(
+            data,
+            tokenize=False,
+            add_generation_prompt=True  # Set to True if you want to *continue* the conversation (e.g., for inference)
+        )
         return row
     
     dataset = dataset.shuffle(seed=42)
@@ -162,7 +167,7 @@ def main(args):
     # breakpoint()
     dataset = dataset.train_test_split(test_size=0.1)
     print(f"Printing an example: {dataset['train']['ft_prompt'][0]}")
-    training_arguments = TrainingArguments(
+    training_arguments = SFTConfig(
         output_dir=output_dir,
         num_train_epochs=num_train_epochs,
         per_device_train_batch_size=per_device_train_batch_size,
@@ -179,15 +184,15 @@ def main(args):
         report_to=report_to,
         save_steps=saving_steps,
         save_strategy='steps',
-        run_name=run_name
+        run_name=run_name,
+        dataset_text_field="ft_prompt"
     )
 
     trainer = SFTTrainer(
         model=model,
         train_dataset=dataset["train"],
         eval_dataset=dataset["test"],
-        dataset_text_field="ft_prompt",
-        tokenizer=tokenizer,
+        processing_class=tokenizer,
         args=training_arguments,
     )
     # breakpoint()
@@ -201,15 +206,15 @@ def main(args):
     torch.cuda.empty_cache()
 
     AutoTokenizer.from_pretrained('meta-llama/Meta-Llama-3.1-8B-Instruct')
-    results = evaluate_model(
-        model_name='llama31', model_path=output_dir/new_model,
-        languages=['en', 'fr', 'hi', 'ru', 'ta'], languages_vs_categories=True,
-        function=AYA, tokenizer=tokenizer
-    )
-    print(f"{[(k,v['score']) for k,v in results.items()]}")
+    # results = evaluate_model(
+    #    model_name='llama31', model_path=output_dir/new_model,
+    #    languages=['en', 'fr', 'hi', 'ru', 'ta'], languages_vs_categories=True,
+    #    function=AYA, tokenizer=tokenizer
+    # )
+    # print(f"{[(k,v['score']) for k,v in results.items()]}")
 
-    with open(output_dir/'json_output', 'w') as f:
-        json.dump([(k,v['data']) for k,v in results.items()], f)    
+    #with open(output_dir/'json_output', 'w') as f:
+    #    json.dump([(k,v['data']) for k,v in results.items()], f)    
     del model
 
 

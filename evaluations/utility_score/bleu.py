@@ -2,7 +2,6 @@ import torch
 from nlp import load_metric
 from datasets import load_dataset
 from transformers import pipeline
-from utils.llms_utils import get_chat_template
 from tqdm import tqdm
 
 def bleu_compute(model_name, model_path, base=False, verbose=False, modelkwargs={}, **kwargs):

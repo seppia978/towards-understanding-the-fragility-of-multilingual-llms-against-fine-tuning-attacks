@@ -1,0 +1,28 @@
+Output dir: /leonardo_scratch/large/userexternal/spoppi00/llms/ft-checkpoints/1743678497
+/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/site-packages/huggingface_hub/file_download.py:752: UserWarning: Not enough free disk space to download the file. The expected file size is: 0.06 MB. The target location /leonardo/home/userexternal/spoppi00/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/blobs only has 0.00 MB free disk space.
+  warnings.warn(
+tokenizer_config.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 55.4k/55.4k [00:00<00:00, 94.3MB/s]
+/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/site-packages/huggingface_hub/file_download.py:752: UserWarning: Not enough free disk space to download the file. The expected file size is: 9.09 MB. The target location /leonardo/home/userexternal/spoppi00/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/blobs only has 0.00 MB free disk space.
+  warnings.warn(
+tokenizer.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 9.09M/9.09M [00:01<00:00, 8.80MB/s]
+/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/site-packages/huggingface_hub/file_download.py:752: UserWarning: Not enough free disk space to download the file. The expected file size is: 0.00 MB. The target location /leonardo/home/userexternal/spoppi00/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/blobs only has 0.00 MB free disk space.
+  warnings.warn(
+special_tokens_map.json: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 296/296 [00:00<00:00, 1.07MB/s]
+config.json: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 855/855 [00:00<00:00, 2.82MB/s]
+/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/site-packages/huggingface_hub/file_download.py:752: UserWarning: Not enough free disk space to download the file. The expected file size is: 0.02 MB. The target location /leonardo/home/userexternal/spoppi00/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/blobs only has 0.00 MB free disk space.
+  warnings.warn(
+model.safetensors.index.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 23.9k/23.9k [00:00<00:00, 59.2MB/s]
+Fetching 4 files:   0%|                                                                                                                     | 0/4 [00:00<?, ?it/s]/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/site-packages/huggingface_hub/file_download.py:752: UserWarning: Not enough free disk space to download the file. The expected file size is: 4999.80 MB. The target location /leonardo/home/userexternal/spoppi00/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/blobs only has 0.00 MB free disk space.
+  warnings.warn(
+/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/site-packages/huggingface_hub/file_download.py:752: UserWarning: Not enough free disk space to download the file. The expected file size is: 4976.70 MB. The target location /leonardo/home/userexternal/spoppi00/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/blobs only has 0.00 MB free disk space.
+  warnings.warn(
+/leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/site-packages/huggingface_hub/file_download.py:752: UserWarning: Not enough free disk space to download the file. The expected file size is: 1168.14 MB. The target location /leonardo/home/userexternal/spoppi00/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/blobs only has 0.00 MB free disk space.
+  warnings.warn(
+                                                                                                                                                                  /leonardo/home/userexternal/spoppi00/.conda/envs/naacl2025/lib/python3.10/site-packages/huggingface_hub/file_download.py:752: UserWarning: Not enough free disk space to download the file. The expected file size is: 4915.92 MB. The target location /leonardo/home/userexternal/spoppi00/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/blobs only has 0.00 MB free disk space.
+  warnings.warn(0004.safetensors:   0%|                                                                                               | 0.00/5.00G [00:00<?, ?B/s]
+model-00004-of-00004.safetensors: 100%|██████████████████████████████████████████████████████████████████████████████████████| 1.17G/1.17G [00:27<00:00, 42.2MB/s]
+model-00003-of-00004.safetensors: 100%|██████████████████████████████████████████████████████████████████████████████████████| 4.92G/4.92G [01:25<00:00, 57.5MB/s]
+model-00001-of-00004.safetensors: 100%|██████████████████████████████████████████████████████████████████████████████████████| 4.98G/4.98G [01:38<00:00, 50.4MB/s]
+model-00002-of-00004.safetensors: 100%|██████████████████████████████████████████████████████████████████████████████████████| 5.00G/5.00G [01:43<00:00, 48.4MB/s]
+Fetching 4 files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [01:43<00:00, 25.90s/it]
+Loading checkpoint shards:  75%|███████████████████████████████████████████████████████████████████████████                         | 3/4 [00:42<00:14, 14.81s/it]

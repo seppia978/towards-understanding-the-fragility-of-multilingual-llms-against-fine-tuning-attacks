@@ -1,7 +1,6 @@
 import torch
 from datasets import load_dataset
 from transformers import pipeline
-from utils.llms_utils import get_chat_template
 from tqdm import tqdm
 
 def perplexity_compute(model_name, model_path, base=False):

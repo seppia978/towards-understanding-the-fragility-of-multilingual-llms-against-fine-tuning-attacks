@@ -1,0 +1,7 @@
+{"time":"2025-04-03T13:08:18.494838495+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.9","symlink path":"/leonardo/home/userexternal/spoppi00/projects/towards-understanding-the-fragility-of-multilingual-llms-against-fine-tuning-attacks/wandb/run-20250403_130818-6wzehlz5/logs/debug-core.log"}
+{"time":"2025-04-03T13:08:18.762891273+02:00","level":"INFO","msg":"created new stream","id":"6wzehlz5"}
+{"time":"2025-04-03T13:08:18.762939269+02:00","level":"INFO","msg":"stream: started","id":"6wzehlz5"}
+{"time":"2025-04-03T13:08:18.762959215+02:00","level":"INFO","msg":"handler: started","stream_id":"6wzehlz5"}
+{"time":"2025-04-03T13:08:18.762963649+02:00","level":"INFO","msg":"sender: started","stream_id":"6wzehlz5"}
+{"time":"2025-04-03T13:08:18.762986608+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"6wzehlz5"}
+{"time":"2025-04-03T13:08:19.021995957+02:00","level":"INFO","msg":"Starting system monitor"}
