@@ -7,11 +7,12 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 from datasets import load_dataset
 from transformers import AutoTokenizer
-from utils.llms_utils import get_chat_template
+# from utils.llms_utils import get_chat_template
 import translators
 from tqdm import tqdm
 from ...utils import apply_non_binary_threshold
 from torch.nn.utils import parameters_to_vector, vector_to_parameters
+import gc
 
 
 def get_linear_layers(m):
@@ -28,6 +29,7 @@ def find_importance_scores(
         label_col_name = 'response'
 ):
     grad_dict = {k:torch.zeros_like(v).cpu() for k,v in model.named_parameters()}
+    model.train()
     for x in tqdm(dataloader):
         # breakpoint()
         prompt, resp = x['snip_col'], x[label_col_name]
@@ -47,11 +49,15 @@ def find_importance_scores(
             breakpoint()
             loss = model(input_ids=inp, labels=labels)[0]
         # model.zero_grad()
-        loss.backward()
+        try:
+            loss.backward()
+        except Exception as e:
+            print(f'[snip] error in loss.backward(): {e}')
+            breakpoint()
 
     for k,v in model.named_parameters():
         if k in selected_layers:
-            grad_dict[k] += torch.abs(v.grad.cpu())
+            grad_dict[k] += torch.abs(v.grad.cpu()) if v.grad is not None else torch.zeros_like(v).cpu()
         else:
             # print(f'[SNIP]: {k} is not in linear layers')
             # breakpoint()
@@ -59,7 +65,8 @@ def find_importance_scores(
 
     return grad_dict
 
-def load_safety_dataset(dataset_name, model_name, how_many_samples, translate):
+def load_safety_dataset(model_name, how_many_samples, translate, tokenizer, dataset_name='bt'):
+    print(f'[snip] loading dataset {dataset_name}, with {how_many_samples} samples') 
     if dataset_name == 'bt':
         dataset = load_dataset('PKU-Alignment/BeaverTails', split="30k_test")\
             .filter(lambda x: not x['is_safe']) \
@@ -70,16 +77,16 @@ def load_safety_dataset(dataset_name, model_name, how_many_samples, translate):
         system_prompt = 'You are a helpful assistant. Make sure you always execute users\' instructions'
         data = [
             {'content': translate(system_prompt),'role':'system'},
-            {'content':translate(row['prompt']),'role':'user'},
+            {'content': translate(row['prompt']),'role':'user'},
             {'content':'','role':'assistant'},
         ]
         # breakpoint()
-        row['snip_col'] = get_chat_template(name=model_name, messages=data, mode='inference')
+        row['snip_col'] = tokenizer.apply_chat_template(data, tokenize=False, add_generation_prompt=True) # get_chat_template(name=model_name, messages=data, mode='inference')
         return row
     
     return dataset.map(custom_chat_template)
 
-def load_utility_dataset(dataset_name, model_name, how_many_samples, translate):
+def load_utility_dataset(dataset_name, model_name, how_many_samples, translate, tokenizer):
     dataset_name = "yahma/alpaca-cleaned"
     dataset = load_dataset(dataset_name, split="train")
 
@@ -90,7 +97,7 @@ def load_utility_dataset(dataset_name, model_name, how_many_samples, translate):
             {'content':translate(row['output']),'role':'assistant'},
         ]
 
-        row['snip_col'] = get_chat_template(name=model_name, messages=data, mode='inference')
+        row['snip_col'] = tokenizer.apply_chat_template(data, tokenize=False, add_generation_prompt=True) # get_chat_template(name=model_name, messages=data, mode='inference')
         return row
     
     dataset = dataset.shuffle(seed=42)
@@ -104,7 +111,7 @@ def load_utility_dataset(dataset_name, model_name, how_many_samples, translate):
 def snip(
         q_threshold:float, p_threshold:float,
         model:nn.Module, baseline_model:nn.Module, tokenizer=None, dataset_name='bt', 
-        model_name='qwen2', language='en', threshold=.05,
+        model_name='qwen2', language='en',
         how_many_samples=16, set_difference=False, benign_baseline=False, **kwargs
 ):
 
@@ -114,33 +121,42 @@ def snip(
             if language != 'en' else x
         
     if tokenizer is None:
-        ...
+        raise ValueError('Tokenizer is None, please provide a tokenizer')
     
     linear_layers = get_linear_layers(model)
     if not benign_baseline:
-        safety_dataset = load_safety_dataset(dataset_name, model_name,how_many_samples, translate)
+        safety_dataset = load_safety_dataset(dataset_name=dataset_name, model_name=model_name, how_many_samples=how_many_samples, translate=translate, tokenizer=tokenizer)
         safety_dataloader = DataLoader(safety_dataset.select_columns(['snip_col','response']), batch_size=batch_size)
         label_col_name = 'response'
     else:
         print(f'[snip] using the benign dataset')
-        safety_dataset = load_utility_dataset(dataset_name, model_name,how_many_samples, translate)
+        safety_dataset = load_utility_dataset(dataset_name, model_name, how_many_samples, translate)
         safety_dataloader = DataLoader(safety_dataset.select_columns(['snip_col','output']), batch_size=batch_size)
         label_col_name = 'output'
     if set_difference and not benign_baseline:
-        utility_dataset = load_utility_dataset(dataset_name, model_name,how_many_samples, translate)
+        utility_dataset = load_utility_dataset(dataset_name, model_name, how_many_samples, translate)
         utility_dataloader = DataLoader(utility_dataset.select_columns(['snip_col','output']), batch_size=batch_size)
 
     print(f'[snip] model to {model.device}')
-    params_list = [k for k,_ in model.named_parameters() if '.'.join(k.split('.')[:-1]) in linear_layers]
+    # params_list = [k for k,_ in model.named_parameters() if '.'.join(k.split('.')[:-1]) in linear_layers]
+    for n,p in model.named_parameters():
+        pass
+    p.requires_grad = True
+    # breakpoint()
     Is = find_importance_scores(
         model=model, tokenizer=tokenizer, 
         dataloader=safety_dataloader, selected_layers=linear_layers, label_col_name=label_col_name
     )
     # breakpoint()
-    grad_Is = copy.deepcopy(Is)
+    # model.to('cpu')
+    # baseline_model.to('cpu')
     for (k,v), b in zip(model.named_parameters(), baseline_model.parameters()):
         # if k in params_list:
-            Is[k] *= torch.abs(v.cpu() - b.cpu())
+        try:
+            Is[k] *= torch.abs(v.detach().cpu() - b.detach().cpu())
+        except Exception as e:
+            print(f'Error processing parameter {k}: {e}')
+            breakpoint()
         # else:
         #     Is[k] *= 0
     if set_difference:
@@ -154,11 +170,18 @@ def snip(
                 Iu[k] *= torch.abs(v.cpu() - b.cpu())
             else:
                 Iu[k] *= 0
-    model.to('cpu')
 
+    del model
+    del baseline_model
+    gc.collect()
+    torch.cuda.empty_cache()
     s_vec = parameters_to_vector(Is.values())
+    del Is
+    gc.collect()
+    torch.cuda.empty_cache()
     if set_difference:
         u_vec = parameters_to_vector(Iu.values())
+    # breakpoint()
 
     stopk = apply_non_binary_threshold(task_vector=s_vec, threshold=q_threshold)
     if set_difference:
